@@ -1,0 +1,133 @@
+#formWrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+form#form {
+  position: absolute;
+  width: 360px;
+  height: auto;
+  background-color: var(--boxbackground);
+  margin: auto;
+  border-radius: 5px;
+  padding: 20px;
+  left: 50%;
+  top: 46%;
+  margin-left: -180px;
+  margin-top: -200px;
+  transition: opacity 0.5s ease;
+  box-shadow: 3px 3px 31px -8px var(--color);
+  border: 7px solid white;
+}
+
+
+@media screen and (min-width: 768px) 
+{ form#form { transform: translate(-0%,-5%); }}
+
+
+@media screen and (max-width: 425px) 
+{
+  form#form 
+  {
+    width: 256px;
+    left: 58%;
+    top: 43%;
+  }
+}
+
+
+.logo {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  user-select: none;
+}
+
+
+div.form-item {
+  position: relative;
+  display: block;
+}
+
+input.form-style {
+  color: var(--text);
+  display: block;
+  width: 89.3%;
+  height: 36px;
+  padding: 5px 5%;
+  border: 2px solid #ccc;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: var(--boxbackground);
+  font-family: "HelveticaNeue", "Arial";
+  font-size: 105%;
+  letter-spacing: 0.8px;
+}
+
+div.form-item .form-style:focus {
+  outline: none;
+  border: 2px solid var(--color);
+  color: var(--color);
+}
+
+div.form-item label.formLabel {
+  position: absolute;
+  left: 16px;
+  top: 19px;
+  transition: all 0.4s ease;
+  color: var(--color);
+  cursor: text;
+  background-color: var(--boxbackground);
+}
+
+.FormTop {
+  top: -8px !important;
+  padding: 0 5px;
+}
+
+.form-item.a { margin-bottom:20px; }
+
+.form-check
+{
+  margin-left: -5px;
+  margin-top: 4px;
+}
+
+.form-check-input{
+  accent-color: green;
+  width: 5%;
+  height: 16px;
+}
+
+input[type=submit].login,
+a.login {
+  float: right;
+  width: 100%;
+  height: 46px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: var(--color);
+  border: none;
+  color: var(--buttontxt);
+  font-size: 16px;
+  margin-top: 14px;
+}
+
+input[type=submit].login:hover,
+a.login:hover {
+  background-color: var(--color);
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type=submit].login:focus,
+a.login:focus {
+  outline: none;
+}
