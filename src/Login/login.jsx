@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Res, IsntEmpty, Alert } from "../Components/Components";
+import { Res, IsntEmpty, Alert, Responses } from "../Components/Components";
+import axios from 'axios';
 import './LoginStyles.css';
 import Logo from './Logo.png';
 
@@ -31,17 +32,25 @@ function Login()
     const HandlerFocus = (event) => { event.target.id === 'email' ? SetFocusEmail(true) : SetFocusPass(true);}
     const HandleCheck = () => { SetPassType(PassType === 'password' ? 'text' : 'password')}
 
-    const SignIn = (event) => {  event.preventDefault();
+    const SignIn = async (event) => {  event.preventDefault();
 
         const EmailValue = email.current.value;
         const PassValue = pass.current.value;
         
-        if(IsntEmpty(EmailValue,PassValue))
-        {
-            console.log('Tienen datos'); 
-        }
+        if (IsntEmpty(EmailValue, PassValue)) {
+            axios
+              .post('http://localhost/API-HARBEST/InicioSesion.php', 
+                { email: EmailValue, pass: PassValue }, 
+                { headers: { 'Content-Type': 'application/json' } }
+              )
+              .then(({ data }) => {
+            
+                Responses(data,{...Res,ECI: 'Email o contrasena incorrecta'});
 
-        else { Alert(Res.CTC,Res.W,2000); }
+              })
+              .catch((err) => { console.log(err); });
+          } 
+          else { Alert(Res.CTC, Res.W, 2000); }
         
     }
 

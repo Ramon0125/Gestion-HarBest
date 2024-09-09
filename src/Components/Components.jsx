@@ -7,7 +7,7 @@ export function IsntEmpty(...values)
 
 export function Alert(result, icon, tim = false, tit = false, sc = false)
 {
-	Swal.fire({
+	return Swal.fire({
 		confirmButtonColor: '#28a745',
 		showConfirmButton: sc,
 		icon: icon,
@@ -22,4 +22,20 @@ W: 'warning',
 S: 'success',
 E: 'error',
 CTC: 'Complete todos los campos',
+EELS: 'Error en la solicitud'
+}
+
+export function Responses(data,text)
+{
+let resp = (data.success === true ? "1" : "0");
+
+console.log(text,data,resp);
+
+
+switch (resp)
+{
+	case "0": Alert(text[data.message],text.W,2000); break;	
+	case "1": Alert(text[data.message],text.S,2000); break;
+};
+
 }
